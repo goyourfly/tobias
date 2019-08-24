@@ -45,22 +45,6 @@ __weak TobiasPlugin* __tobiasPlugin;
 
 
 -(BOOL)handleOpenURL:(NSURL*)url{
-    
-    if ([url.host isEqualToString:@"safepay"]) {
-
-        __weak TobiasPlugin* __self = self;
-
-        
-        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-             [__self onPayResultReceived:resultDic];
-        }];
-
-        [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
-             [__self onAuthResultReceived:resultDic];
-         }];
-
-        return YES;
-    }
     return NO;
 }
 
